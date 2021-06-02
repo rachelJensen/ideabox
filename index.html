@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <nav>
+      <h1>IdeaBox</h1>
+      <h2>Filtered Starred Ideas</h2>
+      <button>Show Starred Ideas</button>
+    </nav>
+    <main>
+      <section>
+        <form class="idea-input">
+          <h3>Title</h3><br>
+          <input type="text" id="title-input"><br>
+          <h3>Body</h3><br>
+          <input type="text" id="body-input"><br>
+          <button>Save</button>
+        </form>
+        <form class="search-field">
+          <button class="search-button" type="submit">
+              <img src="assets/search.svg" alt="Magnifying glass icon"/>
+          </button>
+          <input type="text" id="idea-search" placeholder="Search ideas">
+        </form>
+      </section>
+      <section class="idea-card-board">
+        <article class="idea-card">
+          <div class="card-upper-border">
+            <button>
+              <img src="assets/star.svg" alt="star"/>
+            </button>
+            <button>
+              <img src="assets/delete.svg" alt="X"/>
+            </button>
+          </div>
+          <div class="card-info-field">
+            <h1 id="card-title">Idea Title</h1>
+            <p id="card-body">Idea body.</p>
+          </div>
+          <div class="card-lower-border">
+            <button class="add-comment-button" type="submit">
+              <img src="assets/comment.svg" alt="plus sign with white circle"/>
+            </button>
+            <h2>Comment</h2>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
