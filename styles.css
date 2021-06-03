@@ -2,28 +2,43 @@
   border: 1px solid green;
 }
 
-/* html, body {
+html, body {
   margin: 0;
-  height: 100%
-} */
+  height: auto;
+}
 
 body {
   font-family: "Open Sans";
   display: flex;
-  /* height: 100% */
+  margin: 0;
 }
 
 nav {
+  display: flex;
+  flex-direction: column;
   background-color: #1F1F3D;
   width: 25%;
-  /* height: 100%; */
+  height: auto;
+
 }
 
 h1 {
   color: #E9E9F3;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
   border-bottom: 1px solid #353567;
+  padding-left: 15px;
 
 }
+
+h2 {
+  color: #BFBFDD;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+
 
 main {
   width: 75%
@@ -36,8 +51,9 @@ form {
 h3 {
   font-size: 16px;
   margin-top: 48px;
-  /* margin-bottom: 16px; */
 }
+
+
 .title-field {
   height: 80px;
 }
@@ -45,6 +61,17 @@ h3 {
 .body-field{
   height: 160px;
   margin-bottom: 48px;
+  align-items: center;
+}
+
+.starred-button {
+  margin: 13px;
+  color: #E9E9F3;
+  background-color: #5356A4;
+  width: 90%;
+  height: 40px;
+  border: none;
+  font-size: 20px;
 }
 
 .save-button {
@@ -79,7 +106,6 @@ h3 {
   justify-content: space-evenly;
   align-items: center;
   background-color: #EAEAF4;
-  height: 60%;
 }
 
 .idea-card {
