@@ -77,15 +77,23 @@ h3 {
   background-color: #5356A4;
   width: 90%;
   height: 40px;
-  border: none;
+  /* border: none; */
   font-size: 20px;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #494b91;
 }
 
+.button-outline {
+  border-bottom: 1px solid #353567;
+  padding-bottom: 25px;
+}
 .save-button {
   height: 80px;
   margin-bottom: 48px;
   width: 100%;
-  background-color: #1F1F3D;
+  /* background-color: #1F1F3D; */
+  background-color: #37396e;
   font-size: 40px;
   font-family: "Open Sans";
   /* font-style: bold; */
@@ -103,7 +111,7 @@ h3 {
 .search-button {
   height: 54px;
   width: 54px;
-  background: #1F1F3D;
+  background: #37396E;
   border-width: 2px;
   border-radius: 3px;
   border-color: #5356A4;
