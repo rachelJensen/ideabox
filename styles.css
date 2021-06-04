@@ -102,7 +102,7 @@ h3 {
 .idea-card-board {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   background-color: #EAEAF4;
 }
@@ -112,25 +112,8 @@ h3 {
   flex-direction: column;
   height: 400px;
   width: 350px;
-  margin-top: 30px;
-  border: 1px solid #1F1F3D;
-}
-
-button {
-  padding: 0px;
-}
-
-.icon {
-  height: 56px;
-  width: 56px;
-}
-
-.upper {
-  background-color: #1F1F3D;
-}
-
-.lower {
-  background-color: #5356A4;
+  margin: 15px;
+  border: 2px solid #1F1F3D;
 }
 
 .card-upper-border {
@@ -138,6 +121,18 @@ button {
   justify-content: space-between;
   background-color: #1F1F3D;
   height: 56px;
+}
+
+.icon {
+  height: 42px;
+  width: 42px;
+}
+
+.upper {
+  background-color: #1F1F3D;
+  padding: 0px;
+  /* margin: 0px; */
+  border: none;
 }
 
 .card-info-field {
@@ -150,17 +145,28 @@ button {
 }
 
 .card-title {
-  color: 1F1F3D;
+  font-size: 30px;
+  color: #1F1F3D;
+  /* font-weight: bold; */
+  border: none;
+  height: 25%;
+  margin: 20px 0px;
+  padding: 0px 20px;
 }
 
 h4 {
-  font-size: 20px;
-  color: #1F1F3D;
+  font-size: 24px;
   font-weight: bold;
+  color: #E9E9F3;
+  margin: 10px;
 }
 
 p {
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: lighter;
+  padding: 0px 20px;
+  margin: 0px;
+  height: 75%;
 }
 
 .card-lower-border {
@@ -168,4 +174,15 @@ p {
   background-color: #5356A4;
   color: #E9E9F3;
   height: 56px;
+}
+
+.lower {
+  background-color: #5356A4;
+}
+
+.add-comment-button {
+  background-color: #5356A4;
+  padding: 0px;
+  border: none;
+
 }
