@@ -54,7 +54,10 @@ h3 {
 .title-field {
   height: 80px;
   width: 100%;
-  /* border: 10px #5356A4; */
+  resize: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #5356A4;
 }
 
 .body-field{
@@ -63,6 +66,9 @@ h3 {
   width: 100%;
   align-items: center;
   resize: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #5356A4;
 }
 
 .starred-button {
@@ -71,17 +77,29 @@ h3 {
   background-color: #5356A4;
   width: 90%;
   height: 40px;
-  border: none;
+  /* border: none; */
   font-size: 20px;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #494b91;
 }
 
+.button-outline {
+  border-bottom: 1px solid #353567;
+  padding-bottom: 25px;
+}
 .save-button {
   height: 80px;
   margin-bottom: 48px;
   width: 100%;
-  background-color: #1F1F3D;
+  /* background-color: #1F1F3D; */
+  background-color: #37396e;
   font-size: 40px;
   font-family: "Open Sans";
+  /* font-style: bold; */
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #5356A4;
 }
 
 .search-bar {
@@ -91,14 +109,23 @@ h3 {
 }
 
 .search-button {
-  height: 100%;
-  width: 50px;
-  background: #1F1F3D;
+  height: 54px;
+  width: 54px;
+  background: #37396E;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #5356A4;
+  border-style: solid;
 }
 
 .search-field {
   height: 100%;
   width: 100%;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #5356A4;
+  border-style: solid;
+  font-size: 17px;
 }
 
 .form-section {
