@@ -11,16 +11,15 @@
     <nav>
       <h1>IdeaBox</h1>
       <h2>Filtered Starred Ideas</h2>
-      <button>Show Starred Ideas</button>
+      <button class="starred-button">Show Starred Ideas</button>
     </nav>
     <main>
-
       <section class="form-section">
         <form id="idea-input">
-          <h3>Title</h3><br>
-          <input type="text" id="title-input" class="title-field"><br>
-          <h3>Body</h3><br>
-          <input type="text" id="body-input" class="body-field"><br>
+          <h3>Title</h3>
+          <input type="text" id="title-input" class="title-field">
+          <h3>Body</h3>
+          <textarea id="body-input" class="body-field"></textarea>
           <button class="save-button">Save</button>
         </form>
         <form id="search" class="search-bar">
@@ -30,7 +29,6 @@
           <input type="text" id="idea-search" class="search-field" placeholder="Search ideas">
         </form>
       </section>
-
       <section class="idea-card-board">
         <article class="idea-card">
           <div class="card-upper-border">
