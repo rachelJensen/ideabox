@@ -19,7 +19,6 @@ nav {
   background-color: #1F1F3D;
   width: 25%;
   height: auto;
-
 }
 
 h1 {
@@ -38,8 +37,6 @@ h2 {
   margin-left: 15px;
 }
 
-
-
 main {
   width: 75%
 }
@@ -49,19 +46,23 @@ form {
 }
 
 h3 {
-  font-size: 16px;
-  margin-top: 48px;
+  font-size: 18px;
+  margin-bottom:10px;
+  font-style: bold;
 }
-
 
 .title-field {
   height: 80px;
+  width: 100%;
+  /* border: 10px #5356A4; */
 }
 
 .body-field{
   height: 160px;
   margin-bottom: 48px;
+  width: 100%;
   align-items: center;
+  resize: none;
 }
 
 .starred-button {
@@ -77,27 +78,37 @@ h3 {
 .save-button {
   height: 80px;
   margin-bottom: 48px;
+  width: 100%;
+  background-color: #1F1F3D;
+  font-size: 40px;
+  font-family: "Open Sans";
 }
 
 .search-bar {
   height: 48px;
+  display: flex;
+  flex-direction: row;
 }
 
 .search-button {
   height: 100%;
+  width: 50px;
+  background: #1F1F3D;
 }
 
 .search-field {
   height: 100%;
+  width: 100%;
 }
 
 .form-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 100%;
   background-color: #A9AAD2;
-  height: 750px;
+  padding: 40px 0px;
 }
 
 .idea-card-board {
