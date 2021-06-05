@@ -6,9 +6,22 @@ var titleInput = document.getElementById('titleInput')
 var bodyInput = document.getElementById('bodyInput')
 var ideaInput = document.getElementById('ideaInput')
 
-saveButton.addEventListener("click", displayNewIdea)
-window.addEventListener("load", disableButton)
-ideaInput.addEventListener("keyup", enableButton)
+saveButton.addEventListener('click', displayNewIdea)
+window.addEventListener('load', disableButton)
+ideaInput.addEventListener('keyup', enableButton)
+ideaCardBoard.addEventListener('click', function(event){
+  deleteIdeaCard(event)
+});
+
+function deleteIdeaCard(event){
+  var clickedDelete = event.target.closest('.idea-card')
+  for(var i = 0; i < ideas.length; i++){
+    if (ideas[i].id === Number(clickedDelete.id)) {
+      ideas.splice(i, 1)
+    }
+  }
+  displayIdeas();
+}
 
 function disableButton(){
   saveButton.disabled = true
@@ -37,17 +50,17 @@ function displayIdeas() {
   ideaCardBoard.innerHTML = "";
   for (var i = 0; i < ideas.length; i++) {
     ideaCardBoard.innerHTML +=
-    `<article class="idea-card">
+    `<article class="idea-card" id="${ideas[i].id}" >
       <div class="card-upper-border">
         <button class="upper">
           <img class="icon" src="assets/star.svg" alt="star"/>
         </button>
-        <button class="upper">
+        <button class="upper delete">
           <img class="icon upper" src="assets/delete.svg" alt="X"/>
         </button>
       </div>
       <div class="card-info-field">
-        <h1 id="cardTitle" class="card-title">${ideas[i].title}</h1>
+        <h1 class="card-title" id="cardTitle">${ideas[i].title}</h1>
         <p id="cardBody">${ideas[i].body}</p>
       </div>
       <div class="card-lower-border">
