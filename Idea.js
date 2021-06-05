@@ -19,6 +19,6 @@ class Idea {
   updateIdea(title, body, star) {
     this.title = title;
     this.body = body;
-    this.star = star || false;
+    this.star = star;
   };
 };

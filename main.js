@@ -1,23 +1,4 @@
 var ideas = [];
-//var newIdea = new Idea('Idea Title', 'Idea Body Test Butts');
-
-//Iteration 2
-// When I click save
-  // if I entered a title and body,
-  // a new idea card should appear
-
-//goal save and display the user input title and body to a new idea card
-
-  //output -
-    //new idea card is saved to ideas array
-    //displayed on browser
-  //inputs
-    // value of the title field
-    // value of the body field
-
-  //logic
-    //make query selector of saved button
-    //make event handler of saved button
 
 var saveButton = document.getElementById('saveButton')
 var ideaCardBoard = document.getElementById('ideaCardBoard')
@@ -25,24 +6,35 @@ var titleInput = document.getElementById('titleInput')
 var bodyInput = document.getElementById('bodyInput')
 var ideaInput = document.getElementById('ideaInput')
 
-saveButton.addEventListener("click", displayIdea)
+saveButton.addEventListener("click", displayNewIdea)
 window.addEventListener("load", disableButton)
 ideaInput.addEventListener("keyup", enableButton)
 
 function disableButton(){
   saveButton.disabled = true
-}
+};
 
 function enableButton(){
   if (titleInput.value.length && bodyInput.value.length > 0) {
     saveButton.disabled = false
-  }
-}
+  };
+};
 
-function displayIdea(){
+function displayNewIdea(){
   saveIdea();
-  ideaCardBoard.innerHTML = "";
+  displayIdeas();
   event.preventDefault();
+  document.querySelector('form').reset();
+  disableButton();
+};
+
+function saveIdea() {
+  var idea = new Idea(titleInput.value, bodyInput.value)
+  ideas.push(idea)
+};
+
+function displayIdeas() {
+  ideaCardBoard.innerHTML = "";
   for (var i = 0; i < ideas.length; i++) {
     ideaCardBoard.innerHTML +=
     `<article class="idea-card">
@@ -65,27 +57,46 @@ function displayIdea(){
         <h4>Comment</h4>
       </div>
     </article>`
-  }
-   document.querySelector('form').reset();
-   saveButton.disabled = true
-}
-
-function saveIdea() {
-  var idea = new Idea(titleInput.value, bodyInput.value)
-  ideas.push(idea)
-}
+  };
+};
 
 
-//use input values to instantiate an instance of the object class
-//push new object into the ideas array
+//ITERATION 3 - Favoriting and deleting
+// GOAL:
+// When delete button is clicked
+// the card object should be removed from the array
+// display should be updated to show new array
+// INPUT:
+// Exisiting array
+// identification of the element to remove
+// OUTPUT:
+// An updated array
+// An updated display not containing the deleted card
+// LOGIC:
+// The element that has been clicked
+// if the object within the array contains the same information (ID?) as the card that was clicked
+// then remove the object from the ideas array
+// refresh the display
 
 
+// GOAL:
+// When the "star" button is clicked,
+// the "star" button turns from a clear image to a red image
+// INPUT:
+// An exisitng array
+// An identification of the element that needs to be changed
+// OUTPUT:
+// an updated object within the array reflecting the star key updated to true
+// refreshed display reflecting update
+// LOGIC:
+// If a star element is clicked,
+// find the ID of the clicked card,
+// find that ID within an object within the ideas array
+  // Loop through the ideas array to find an object with the matching
+  // IF the object contains the ID, then:
+  // update the star property within the object to "true"
+  // IF NOT, keep it movin
 
-    // on click of save button, a new Idea instance is generated (update data model first)
-      //assign title input to idea instance title property
-      //assign body input to idea instance body property
-    //new instance should be saved to the ideas array
-
-    //use ideas array to generate display cards
-      //for each object in the array
-      //use it to update the innerHTML section to display the new card
+  // for bullet point 3, we think the logic will be the opposite of this ^^^
+  // once it's functional,
+  // it may be easier to see how best to go about switching the favorite property back
