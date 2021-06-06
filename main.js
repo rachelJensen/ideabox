@@ -10,11 +10,31 @@ saveButton.addEventListener('click', displayNewIdea)
 window.addEventListener('load', disableButton)
 ideaInput.addEventListener('keyup', enableButton)
 ideaCardBoard.addEventListener('click', function(event){
-  deleteIdeaCard(event)
+  clickIdeaCardAction(event)
 });
 
-function deleteIdeaCard(event){
+function clickIdeaCardAction(event){
   if (event.target.classList.contains('delete')){
+    deleteIdeaCard(event)
+  } else if (event.target.classList.contains('favorite')){
+    toggleFavorite(event)
+  }
+}
+
+function toggleFavorite(event){
+  //if the star is clicked
+  //change the value of idea.star to the value it currently is not
+  var clickedStar = event.target.closest('.idea-card')
+  for (var i = 0; i < ideas.length; i++) {
+    if(ideas[i].id === Number(clickedStar.id)) {
+      ideas[i].star = !(ideas[i].star)
+
+    }
+  }
+  displayIdeas();
+}
+
+function deleteIdeaCard(event){
     var clickedDelete = event.target.closest('.idea-card')
     for(var i = 0; i < ideas.length; i++){
       if (ideas[i].id === Number(clickedDelete.id)) {
@@ -23,7 +43,7 @@ function deleteIdeaCard(event){
     }
     displayIdeas();
   }
-}
+
 
 function disableButton(){
   saveButton.disabled = true
@@ -48,14 +68,20 @@ function saveIdea() {
   ideas.push(idea)
 };
 
-function displayIdeas() {
+function displayIdeas(){
+  var starToDisplay;
   ideaCardBoard.innerHTML = "";
   for (var i = 0; i < ideas.length; i++) {
+      if (!ideas[i].star) {
+        starToDisplay = 'src="assets/star.svg" alt="empty star"';
+      } else {
+        starToDisplay = 'src="assets/star-active.svg" alt="red star"';
+      };
     ideaCardBoard.innerHTML +=
     `<article class="idea-card" id="${ideas[i].id}" >
       <div class="card-upper-border">
         <button class="upper">
-          <img class="icon" src="assets/star.svg" alt="star"/>
+          <img class="icon favorite" ${starToDisplay}/>
         </button>
         <button class="upper">
           <img class="icon upper delete" src="assets/delete.svg" alt="X"/>
