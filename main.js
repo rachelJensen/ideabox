@@ -14,13 +14,15 @@ ideaCardBoard.addEventListener('click', function(event){
 });
 
 function deleteIdeaCard(event){
-  var clickedDelete = event.target.closest('.idea-card')
-  for(var i = 0; i < ideas.length; i++){
-    if (ideas[i].id === Number(clickedDelete.id)) {
-      ideas.splice(i, 1)
+  if (event.target.classList.contains('delete')){
+    var clickedDelete = event.target.closest('.idea-card')
+    for(var i = 0; i < ideas.length; i++){
+      if (ideas[i].id === Number(clickedDelete.id)) {
+        ideas.splice(i, 1)
+      }
     }
+    displayIdeas();
   }
-  displayIdeas();
 }
 
 function disableButton(){
@@ -55,8 +57,8 @@ function displayIdeas() {
         <button class="upper">
           <img class="icon" src="assets/star.svg" alt="star"/>
         </button>
-        <button class="upper delete">
-          <img class="icon upper" src="assets/delete.svg" alt="X"/>
+        <button class="upper">
+          <img class="icon upper delete" src="assets/delete.svg" alt="X"/>
         </button>
       </div>
       <div class="card-info-field">
