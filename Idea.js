@@ -6,10 +6,22 @@ class Idea {
     this.star = star || false ;
   };
 
-  saveToStorage() {
-    var stringifiedIdea = JSON.stringify(this);
-    localStorage.setItem(`Stored Idea ${this.id}`, stringifiedIdea);
+  saveToStorage(idea) {
+    this.resetLocalStorage();
+
+    var parsedLocalStorage = JSON.parse(localStorage.getItem('ideas'))
+    parsedLocalStorage.push(idea);
+    var saved = JSON.stringify(parsedLocalStorage);
+    localStorage.setItem(`ideas`, saved);
   };
+
+  resetLocalStorage() {
+    var ideas = [];
+    var strIdeas = JSON.stringify(ideas);
+    if (!JSON.parse(localStorage.getItem('ideas'))) {
+      localStorage.setItem(`ideas`, strIdeas);
+    }
+  }
 
   deleteFromStorage() {
     localStorage.removeItem(`Stored Idea ${this.id}`);

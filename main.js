@@ -13,6 +13,17 @@ ideaCardBoard.addEventListener('click', function(event){
   clickIdeaCardAction(event)
 });
 
+//Goal to display items from local storage on page load
+   //an empty ideas array (data model)
+   //whatever its in localStorage
+   //ability to add new idea cards to both array and storage
+
+//output - any object in storage will also be in the ideas array (which will be displayed to the DOM via existing functionality)
+
+
+
+
+
 function clickIdeaCardAction(event){
   if (event.target.classList.contains('delete')){
     deleteIdeaCard(event)
@@ -22,27 +33,24 @@ function clickIdeaCardAction(event){
 }
 
 function toggleFavorite(event){
-  //if the star is clicked
-  //change the value of idea.star to the value it currently is not
   var clickedStar = event.target.closest('.idea-card')
   for (var i = 0; i < ideas.length; i++) {
     if(ideas[i].id === Number(clickedStar.id)) {
       ideas[i].star = !(ideas[i].star)
-
     }
   }
   displayIdeas();
 }
 
-function deleteIdeaCard(event){
+function deleteIdeaCard(event) {
     var clickedDelete = event.target.closest('.idea-card')
     for(var i = 0; i < ideas.length; i++){
       if (ideas[i].id === Number(clickedDelete.id)) {
-        ideas.splice(i, 1)
+        ideas.splice(i, 1);
       }
-    }
-    displayIdeas();
   }
+  displayIdeas();
+}
 
 
 function disableButton(){
@@ -52,7 +60,7 @@ function disableButton(){
 function enableButton(){
   if (titleInput.value.length && bodyInput.value.length > 0) {
     saveButton.disabled = false
-  };
+  }
 };
 
 function displayNewIdea(){
@@ -65,10 +73,11 @@ function displayNewIdea(){
 
 function saveIdea() {
   var idea = new Idea(titleInput.value, bodyInput.value)
-  ideas.push(idea)
+  ideas.push(idea);
+  idea.saveToStorage(idea); //ADDED FOR LOCAL STORAGE
 };
 
-function displayIdeas(){
+function displayIdeas() {
   var starToDisplay;
   ideaCardBoard.innerHTML = "";
   for (var i = 0; i < ideas.length; i++) {
@@ -77,7 +86,7 @@ function displayIdeas(){
       } else {
         starToDisplay = 'src="assets/star-active.svg" alt="red star"';
       };
-    ideaCardBoard.innerHTML +=
+  ideaCardBoard.innerHTML +=
     `<article class="idea-card" id="${ideas[i].id}" >
       <div class="card-upper-border">
         <button class="upper">
@@ -100,44 +109,3 @@ function displayIdeas(){
     </article>`
   };
 };
-
-
-//ITERATION 3 - Favoriting and deleting
-// GOAL:
-// When delete button is clicked
-// the card object should be removed from the array
-// display should be updated to show new array
-// INPUT:
-// Exisiting array
-// identification of the element to remove
-// OUTPUT:
-// An updated array
-// An updated display not containing the deleted card
-// LOGIC:
-// The element that has been clicked
-// if the object within the array contains the same information (ID?) as the card that was clicked
-// then remove the object from the ideas array
-// refresh the display
-
-
-// GOAL:
-// When the "star" button is clicked,
-// the "star" button turns from a clear image to a red image
-// INPUT:
-// An exisitng array
-// An identification of the element that needs to be changed
-// OUTPUT:
-// an updated object within the array reflecting the star key updated to true
-// refreshed display reflecting update
-// LOGIC:
-// If a star element is clicked,
-// find the ID of the clicked card,
-// find that ID within an object within the ideas array
-  // Loop through the ideas array to find an object with the matching
-  // IF the object contains the ID, then:
-  // update the star property within the object to "true"
-  // IF NOT, keep it movin
-
-  // for bullet point 3, we think the logic will be the opposite of this ^^^
-  // once it's functional,
-  // it may be easier to see how best to go about switching the favorite property back
