@@ -5,6 +5,7 @@ var ideaCardBoard = document.getElementById('ideaCardBoard')
 var titleInput = document.getElementById('titleInput')
 var bodyInput = document.getElementById('bodyInput')
 var ideaInput = document.getElementById('ideaInput')
+var starredIdeaButton = document.getElementById('starredIdeaButton')
 
 saveButton.addEventListener('click', displayNewIdea)
 window.addEventListener('load', loadIdeasPage)
@@ -12,6 +13,30 @@ ideaInput.addEventListener('keyup', enableButton)
 ideaCardBoard.addEventListener('click', function(event){
   clickIdeaCardAction(event)
 });
+starredIdeaButton.addEventListener('click', toggleDisplay)
+
+function toggleDisplay() {
+ //conditional determining displayAll or displayFavorites
+  ideas = [];
+  var parsedLocalStorage = JSON.parse(localStorage.getItem('ideas'));
+  if (starredIdeaButton.innerText === 'Show Starred Ideas') {
+    displayFavorites(parsedLocalStorage);
+  } else {
+    ideas = parsedLocalStorage
+    displayIdeas();
+    starredIdeaButton.innerText = 'Show Starred Ideas';
+  }
+ }
+
+function displayFavorites(parsedLocalStorage) {
+  for(var i=0; i < parsedLocalStorage.length; i++) {
+    if (parsedLocalStorage[i].star) {
+      ideas.push(parsedLocalStorage[i]);
+    }
+  }
+  starredIdeaButton.innerText = "Show All Ideas"
+  displayIdeas();
+}
 
 function loadIdeasPage() {
   disableButton();
@@ -76,7 +101,7 @@ function displayIdeas() {
 
   for (var i = 0; i < ideas.length; i++) {
       if (!ideas[i].star) {
-        starToDisplay = 'src="assets/star.svg" alt="empty star"';
+         starToDisplay = 'src="assets/star.svg" alt="empty star"';
       } else {
         starToDisplay = 'src="assets/star-active.svg" alt="red star"';
       };
