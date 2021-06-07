@@ -57,15 +57,17 @@ function toggleFavorite(event) {
 }
 
 function deleteIdeaCard(event) {
-    var clickedDelete = event.target.closest('.idea-card')
-    for(var i = 0; i < ideas.length; i++){
-      if (ideas[i].id === Number(clickedDelete.id)) {
-        ideas.splice(i, 1);
-      }
-  }
-  displayIdeas();
+    var newTestIdea = new Idea();
+    var clickedDelete = event.target.closest('.idea-card').id
+    newTestIdea.deleteFromStorage(clickedDelete);
+  //   for(var i = 0; i < ideas.length; i++){
+  //     if (ideas[i].id === Number(clickedDelete.id)) {
+  //       ideas.splice(i, 1);
+  //
+  //     }
+  // }
+    displayIdeas();
 }
-
 
 function disableButton() {
   saveButton.disabled = true
