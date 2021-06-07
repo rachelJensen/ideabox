@@ -74,38 +74,43 @@ function displayNewIdea(){
 function saveIdea() {
   var idea = new Idea(titleInput.value, bodyInput.value)
   ideas.push(idea);
-  idea.saveToStorage(idea); //ADDED FOR LOCAL STORAGE
+  //invoking the saveToStorage method from the Idea class
+    //passing through the the newly add Idea as the argument
+  idea.saveToStorage(idea);
 };
 
 function displayIdeas() {
   var starToDisplay;
+
   ideaCardBoard.innerHTML = "";
+
   for (var i = 0; i < ideas.length; i++) {
       if (!ideas[i].star) {
         starToDisplay = 'src="assets/star.svg" alt="empty star"';
       } else {
         starToDisplay = 'src="assets/star-active.svg" alt="red star"';
       };
-  ideaCardBoard.innerHTML +=
-    `<article class="idea-card" id="${ideas[i].id}" >
-      <div class="card-upper-border">
-        <button class="upper">
-          <img class="icon favorite" ${starToDisplay}/>
-        </button>
-        <button class="upper">
-          <img class="icon upper delete" src="assets/delete.svg" alt="X"/>
-        </button>
-      </div>
-      <div class="card-info-field">
-        <h1 class="card-title" id="cardTitle">${ideas[i].title}</h1>
-        <p id="cardBody">${ideas[i].body}</p>
-      </div>
-      <div class="card-lower-border">
-        <button class="add-comment-button" type="submit">
-          <img class="icon" src="assets/comment.svg" alt="plus sign with white circle"/>
-        </button>
-        <h4>Comment</h4>
-      </div>
-    </article>`
+
+    ideaCardBoard.innerHTML +=
+      `<article class="idea-card" id="${ideas[i].id}" >
+        <div class="card-upper-border">
+          <button class="upper">
+            <img class="icon favorite" ${starToDisplay}/>
+          </button>
+          <button class="upper">
+            <img class="icon upper delete" src="assets/delete.svg" alt="X"/>
+          </button>
+        </div>
+        <div class="card-info-field">
+          <h1 class="card-title" id="cardTitle">${ideas[i].title}</h1>
+          <p id="cardBody">${ideas[i].body}</p>
+        </div>
+        <div class="card-lower-border">
+          <button class="add-comment-button" type="submit">
+            <img class="icon" src="assets/comment.svg" alt="plus sign with white circle"/>
+          </button>
+          <h4>Comment</h4>
+        </div>
+      </article>`
   };
 };
