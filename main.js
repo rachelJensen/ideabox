@@ -7,7 +7,7 @@ var bodyInput = document.getElementById('bodyInput')
 var ideaInput = document.getElementById('ideaInput')
 
 saveButton.addEventListener('click', displayNewIdea)
-window.addEventListener('load', disableButton)
+window.addEventListener('load', loadIdeasPage)
 ideaInput.addEventListener('keyup', enableButton)
 ideaCardBoard.addEventListener('click', function(event){
   clickIdeaCardAction(event)
@@ -19,12 +19,26 @@ ideaCardBoard.addEventListener('click', function(event){
    //ability to add new idea cards to both array and storage
 
 //output - any object in storage will also be in the ideas array (which will be displayed to the DOM via existing functionality)
+// logic:
+// upon window load,
+// go local storage and reference the 'ideas' key
+// get the value of the 'ideas' property
+// parse the object we got from storage
+// reassign the ideas variable to the newly parsed array
+//
+function loadIdeasPage() {
+  disableButton();
+  if (JSON.parse(localStorage.getItem('ideas'))) {
+    var ideasFromStorage = localStorage.getItem('ideas');
+    var parsedIdeasFromStorage = JSON.parse(ideasFromStorage);
+    ideas = parsedIdeasFromStorage;
+  };
+  displayIdeas();
+};
 
 
 
-
-
-function clickIdeaCardAction(event){
+function clickIdeaCardAction(event) {
   if (event.target.classList.contains('delete')){
     deleteIdeaCard(event)
   } else if (event.target.classList.contains('favorite')){
@@ -32,7 +46,7 @@ function clickIdeaCardAction(event){
   }
 }
 
-function toggleFavorite(event){
+function toggleFavorite(event) {
   var clickedStar = event.target.closest('.idea-card')
   for (var i = 0; i < ideas.length; i++) {
     if(ideas[i].id === Number(clickedStar.id)) {
@@ -53,17 +67,17 @@ function deleteIdeaCard(event) {
 }
 
 
-function disableButton(){
+function disableButton() {
   saveButton.disabled = true
 };
 
-function enableButton(){
+function enableButton() {
   if (titleInput.value.length && bodyInput.value.length > 0) {
     saveButton.disabled = false
   }
 };
 
-function displayNewIdea(){
+function displayNewIdea() {
   saveIdea();
   displayIdeas();
   event.preventDefault();
