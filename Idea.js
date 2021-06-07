@@ -42,16 +42,25 @@ class Idea {
     }
   }
 // then takes the new array and reassign it as the value of ideas
-  ideas = parsedLocalStorage
+  ideas = parsedLocalStorage;
 // then restringify
 // and send back to storage
     localStorage.setItem(`ideas`, JSON.stringify(parsedLocalStorage));
   };
 
   //This might need to be refactored depending on use
-  updateIdea(title, body, star) {
-    this.title = title;
-    this.body = body;
-    this.star = star;
+  updateIdea(idNumber) {
+    var parsedLocalStorage = JSON.parse(localStorage.getItem('ideas'));
+    console.log(parsedLocalStorage);
+    for (var i = 0; i < parsedLocalStorage.length; i++) {
+      console.log('butts')
+      if(parsedLocalStorage[i].id === Number(idNumber)) {
+        console.log('ids matched')
+        parsedLocalStorage[i].star = !(parsedLocalStorage[i].star)
+        console.log(parsedLocalStorage[i].star);
+      }
+    }
+      ideas = parsedLocalStorage;
+      localStorage.setItem('ideas', JSON.stringify(parsedLocalStorage));
+    };
   };
-};
