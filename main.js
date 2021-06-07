@@ -7,24 +7,23 @@ var bodyInput = document.getElementById('bodyInput')
 var ideaInput = document.getElementById('ideaInput')
 
 saveButton.addEventListener('click', displayNewIdea)
-window.addEventListener('load', disableButton)
+window.addEventListener('load', loadIdeasPage)
 ideaInput.addEventListener('keyup', enableButton)
 ideaCardBoard.addEventListener('click', function(event){
   clickIdeaCardAction(event)
 });
 
-//Goal to display items from local storage on page load
-   //an empty ideas array (data model)
-   //whatever its in localStorage
-   //ability to add new idea cards to both array and storage
+function loadIdeasPage() {
+  disableButton();
+  if (JSON.parse(localStorage.getItem('ideas'))) {
+    var ideasFromStorage = localStorage.getItem('ideas');
+    var parsedIdeasFromStorage = JSON.parse(ideasFromStorage);
+    ideas = parsedIdeasFromStorage;
+  };
+  displayIdeas();
+};
 
-//output - any object in storage will also be in the ideas array (which will be displayed to the DOM via existing functionality)
-
-
-
-
-
-function clickIdeaCardAction(event){
+function clickIdeaCardAction(event) {
   if (event.target.classList.contains('delete')){
     deleteIdeaCard(event)
   } else if (event.target.classList.contains('favorite')){
@@ -32,38 +31,31 @@ function clickIdeaCardAction(event){
   }
 }
 
-function toggleFavorite(event){
-  var clickedStar = event.target.closest('.idea-card')
-  for (var i = 0; i < ideas.length; i++) {
-    if(ideas[i].id === Number(clickedStar.id)) {
-      ideas[i].star = !(ideas[i].star)
-    }
-  }
+function toggleFavorite(event) {
+  var newTestIdea = new Idea()
+  var clickedStar = event.target.closest('.idea-card').id
+  newTestIdea.updateIdea(clickedStar);
   displayIdeas();
 }
 
 function deleteIdeaCard(event) {
-    var clickedDelete = event.target.closest('.idea-card')
-    for(var i = 0; i < ideas.length; i++){
-      if (ideas[i].id === Number(clickedDelete.id)) {
-        ideas.splice(i, 1);
-      }
-  }
-  displayIdeas();
+    var newTestIdea = new Idea();
+    var clickedDelete = event.target.closest('.idea-card').id
+    newTestIdea.deleteFromStorage(clickedDelete);
+    displayIdeas();
 }
 
-
-function disableButton(){
+function disableButton() {
   saveButton.disabled = true
 };
 
-function enableButton(){
+function enableButton() {
   if (titleInput.value.length && bodyInput.value.length > 0) {
     saveButton.disabled = false
   }
 };
 
-function displayNewIdea(){
+function displayNewIdea() {
   saveIdea();
   displayIdeas();
   event.preventDefault();
@@ -74,8 +66,6 @@ function displayNewIdea(){
 function saveIdea() {
   var idea = new Idea(titleInput.value, bodyInput.value)
   ideas.push(idea);
-  //invoking the saveToStorage method from the Idea class
-    //passing through the the newly add Idea as the argument
   idea.saveToStorage(idea);
 };
 
