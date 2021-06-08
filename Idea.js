@@ -7,12 +7,10 @@ class Idea {
   };
 
   saveToStorage(idea) {
-    // var ideas = [];
     var strIdeas = JSON.stringify([]);
-
     if (!JSON.parse(localStorage.getItem('ideas'))) {
       localStorage.setItem(`ideas`, strIdeas);
-    }
+    };
 
     var parsedLocalStorage = JSON.parse(localStorage.getItem('ideas'));
     parsedLocalStorage.push(idea);
@@ -26,8 +24,8 @@ class Idea {
     for(var i = 0; i < parsedLocalStorage.length; i++){
       if (parsedLocalStorage[i].id === Number(idNumber)) {
         parsedLocalStorage.splice(i, 1);
-      }
-    }
+      };
+    };
     ideas = parsedLocalStorage;
     localStorage.setItem(`ideas`, JSON.stringify(parsedLocalStorage));
   };
@@ -36,9 +34,9 @@ class Idea {
     var parsedLocalStorage = JSON.parse(localStorage.getItem('ideas'));
     for (var i = 0; i < parsedLocalStorage.length; i++) {
       if(parsedLocalStorage[i].id === Number(idNumber)) {
-        parsedLocalStorage[i].star = !(parsedLocalStorage[i].star)
-      }
-    }
+        parsedLocalStorage[i].star = !(parsedLocalStorage[i].star);
+      };
+    };
       ideas = parsedLocalStorage;
       localStorage.setItem('ideas', JSON.stringify(parsedLocalStorage));
     };
