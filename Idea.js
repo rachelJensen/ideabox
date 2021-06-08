@@ -7,8 +7,8 @@ class Idea {
   };
 
   saveToStorage(idea) {
-    var ideas = []; // does this need the var? maybe it is reassigning instead of declaring?
-    var strIdeas = JSON.stringify(ideas);
+    // var ideas = [];
+    var strIdeas = JSON.stringify([]);
 
     if (!JSON.parse(localStorage.getItem('ideas'))) {
       localStorage.setItem(`ideas`, strIdeas);
