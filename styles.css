@@ -1,7 +1,4 @@
-/* *{
-  border: 1px solid green;
-} */
-
+/* Body */
 html, body {
   margin: 0;
   height: auto;
@@ -12,6 +9,8 @@ body {
   display: flex;
   margin: 0;
 }
+
+/* Nav */
 
 nav {
   display: flex;
@@ -37,38 +36,9 @@ h2 {
   margin-left: 15px;
 }
 
-main {
-  width: 100%;
-}
-
-form {
-  width: 50%;
-}
-
-h3 {
-  font-size: 18px;
-  margin-bottom:10px;
-  font-style: bold;
-}
-
-.title-field {
-  height: 80px;
-  width: 100%;
-  resize: none;
-  border-width: 2px;
-  border-radius: 3px;
-  border-color: #5356A4;
-}
-
-.body-field{
-  height: 160px;
-  margin-bottom: 48px;
-  width: 100%;
-  align-items: center;
-  resize: none;
-  border-width: 2px;
-  border-radius: 3px;
-  border-color: #5356A4;
+.button-outline {
+  border-bottom: 1px solid #353567;
+  padding-bottom: 25px;
 }
 
 .starred-button {
@@ -84,22 +54,50 @@ h3 {
   border-color: #494b91;
 }
 
-.button-outline {
-  border-bottom: 1px solid #353567;
-  padding-bottom: 25px;
+/* Main */
+main {
+  width: 100%;
 }
+
+/* Form Section */
+form {
+  width: 50%;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom:10px;
+  font-style: bold;
+}
+
+textarea {
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #5356A4;
+  resize: none;
+  width: 100%;
+}
+
+button {
+  background-color: #37396e;
+}
+
+.title-field {
+  height: 80px;
+
+}
+
+.body-field{
+  height: 160px;
+  margin-bottom: 48px;
+  align-items: center;
+}
+
 .save-button {
   height: 80px;
   margin-bottom: 48px;
   width: 100%;
-  /* background-color: #1F1F3D; */
-  background-color: #37396e;
   font-size: 40px;
-  font-family: "Open Sans";
-  /* font-style: bold; */
-  border-width: 2px;
-  border-radius: 3px;
-  border-color: #5356A4;
 }
 
 .search-bar {
@@ -111,7 +109,6 @@ h3 {
 .search-button {
   height: 54px;
   width: 54px;
-  background: #37396E;
   border-width: 2px;
   border-radius: 3px;
   border-color: #5356A4;
@@ -138,59 +135,15 @@ h3 {
   padding: 40px 0px;
 }
 
-.idea-card-board {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #EAEAF4;
-}
+/* Idea Card Section */
 
-.idea-card {
+article {
   display: flex;
   flex-direction: column;
   height: 400px;
   width: 350px;
   margin: 15px;
   border: 2px solid #1F1F3D;
-}
-
-.card-upper-border {
-  display: flex;
-  justify-content: space-between;
-  background-color: #1F1F3D;
-  height: 56px;
-}
-
-.icon {
-  height: 42px;
-  width: 42px;
-}
-
-.upper {
-  background-color: #1F1F3D;
-  padding: 0px;
-  /* margin: 0px; */
-  border: none;
-}
-
-.card-info-field {
-  display: flex;
-  flex-direction: column;
-  background-color: #FFFFFF;
-  color: #1F1F3D;
-  font-size: 18px;
-  height: 288px;
-}
-
-.card-title {
-  font-size: 30px;
-  color: #1F1F3D;
-  /* font-weight: bold; */
-  border: none;
-  height: 25%;
-  margin: 20px 0px;
-  padding: 0px 20px;
 }
 
 h4 {
@@ -208,15 +161,59 @@ p {
   height: 75%;
 }
 
+.idea-card-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #EAEAF4;
+}
+
+.card-upper-border {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1F1F3D;
+  height: 56px;
+}
+
+.icon {
+  height: 42px;
+  width: 42px;
+}
+
+button {
+
+}
+
+.upper {
+  background-color: #1F1F3D;
+  padding: 0px;
+  border: none;
+}
+
+.card-info-field {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  color: #1F1F3D;
+  font-size: 18px;
+  height: 288px;
+}
+
+.card-title {
+  font-size: 30px;
+  color: #1F1F3D;
+  border: none;
+  height: 25%;
+  margin: 20px 0px;
+  padding: 0px 20px;
+}
+
 .card-lower-border {
   display: flex;
   background-color: #5356A4;
   color: #E9E9F3;
   height: 56px;
-}
-
-.lower {
-  background-color: #5356A4;
 }
 
 .add-comment-button {
