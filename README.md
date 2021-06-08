@@ -37,11 +37,11 @@ Have you ever had an idea that you wanted to save and reference later? Where her
 
 ## Illustrations
 
-![Watch this cool recording of the webpage in action](https://user-images.githubusercontent.com/21073095/121120153-3e7b5480-c7da-11eb-870b-af46f627761f.mov)
+![Watch this cool recording of the webpage in action](https://youtu.be/9Plq4_TI6Ew)
 
 ## Deployed Page
 
-Visit our published Hang In There page: https://racheljensen.github.io/ideabox/
+Visit our published ![Ideabox](https://racheljensen.github.io/ideabox/)
 
 ## Possible Future Extensions
 
