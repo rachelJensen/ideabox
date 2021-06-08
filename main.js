@@ -1,12 +1,16 @@
 var ideas = [];
 
+// Selectors
 var saveButton = document.getElementById('saveButton')
 var ideaCardBoard = document.getElementById('ideaCardBoard')
 var titleInput = document.getElementById('titleInput')
 var bodyInput = document.getElementById('bodyInput')
 var ideaInput = document.getElementById('ideaInput')
 var starredIdeaButton = document.getElementById('starredIdeaButton')
+var searchField = document.getElementById('ideaSearch');
 
+
+// Event Listeners
 saveButton.addEventListener('click', displayNewIdea)
 window.addEventListener('load', loadIdeasPage)
 ideaInput.addEventListener('keyup', enableButton)
@@ -14,9 +18,26 @@ ideaCardBoard.addEventListener('click', function(event){
   clickIdeaCardAction(event)
 });
 starredIdeaButton.addEventListener('click', toggleDisplay)
+searchField.addEventListener('input', searchIdeas);
+
+
+// Functions
+function searchIdeas() {
+  var searchableIdeas = JSON.parse(localStorage.getItem('ideas'));
+  ideas = [];
+
+  for (var i = 0; i < searchableIdeas.length; i++) {
+    if (searchableIdeas[i].title.includes(searchField.value) || searchableIdeas[i].body.includes(searchField.value)) {
+      ideas.push(searchableIdeas[i]);
+      displayIdeas();
+    } else {
+      displayIdeas();
+    }
+  }
+};
+
 
 function toggleDisplay() {
- //conditional determining displayAll or displayFavorites
   ideas = [];
   var parsedLocalStorage = JSON.parse(localStorage.getItem('ideas'));
   if (starredIdeaButton.innerText === 'Show Starred Ideas') {

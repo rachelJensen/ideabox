@@ -34,13 +34,9 @@ class Idea {
 
   updateIdea(idNumber) {
     var parsedLocalStorage = JSON.parse(localStorage.getItem('ideas'));
-    console.log(parsedLocalStorage);
     for (var i = 0; i < parsedLocalStorage.length; i++) {
-      console.log('butts')
       if(parsedLocalStorage[i].id === Number(idNumber)) {
-        console.log('ids matched')
         parsedLocalStorage[i].star = !(parsedLocalStorage[i].star)
-        console.log(parsedLocalStorage[i].star);
       }
     }
       ideas = parsedLocalStorage;
