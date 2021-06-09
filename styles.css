@@ -47,7 +47,6 @@ h2 {
   background-color: #5356A4;
   width: 90%;
   height: 40px;
-  /* border: none; */
   font-size: 20px;
   border-width: 2px;
   border-radius: 3px;
@@ -74,6 +73,9 @@ textarea {
   border-width: 2px;
   border-radius: 3px;
   border-color: #5356A4;
+  font-family: "Open Sans";
+  font-size: 15px;
+  outline: none;
   resize: none;
   width: 100%;
 }
@@ -83,8 +85,7 @@ button {
 }
 
 .title-field {
-  height: 80px;
-
+  height: 70px;
 }
 
 .body-field{
@@ -94,10 +95,11 @@ button {
 }
 
 .save-button {
-  height: 80px;
+  height: 70px;
   margin-bottom: 48px;
   width: 100%;
-  font-size: 40px;
+  font-size: 30px;
+  color: #FFFFFF;
 }
 
 .search-bar {
@@ -106,13 +108,15 @@ button {
   flex-direction: row;
 }
 
-.search-button {
-  height: 54px;
-  width: 54px;
+.search-image {
+  height: 34px;
+  width: 34px;
+  background-color: #37396E;
   border-width: 2px;
   border-radius: 3px;
   border-color: #5356A4;
   border-style: solid;
+  padding: 8px;
 }
 
 .search-field {
