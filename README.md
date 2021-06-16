@@ -37,11 +37,11 @@ Have you ever had an idea that you wanted to save and reference later? Where her
 
 ## Illustrations
 
-![Watch this cool recording of the webpage in action](https://youtu.be/9Plq4_TI6Ew)
+[Watch this cool recording of the webpage in action](https://youtu.be/9Plq4_TI6Ew)
 
 ## Deployed Page
 
-Visit our published ![Ideabox](https://racheljensen.github.io/ideabox/)
+Visit our published [Ideabox](https://racheljensen.github.io/ideabox/)
 
 ## Possible Future Extensions
 
